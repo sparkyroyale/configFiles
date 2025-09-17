@@ -1,0 +1,166 @@
+{
+    "modules-left": ["custom/workspaces"],
+    "custom/workspaces": {
+        "exec": "~/.config/waybar/workspaces.sh",
+        "return-type": "json",
+        "interval": 1,
+        "format": "{}"
+    },
+
+    "layer": "top",
+    "position": "top",
+    "margin-top": 4,
+    "margin-left": 3,
+    "margin-right": 3,
+
+    "modules-left": [
+        "tray",
+        "hyprland/workspaces",
+        "custom/update",
+        "custom/backup1",
+        "custom/backup2",
+        "custom/clipboard",
+        "custom/kdeconnect",
+        "custom/space1",
+        "clock"
+    ],
+
+    "modules-right": [
+        "backlight",
+        "pulseaudio",
+        "network",
+        "bluetooth",
+        "memory",
+        "battery"
+    ],
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "disable-scroll-wraparound": true,
+        "format-icons": {
+        "1": "",  // Default (inactive)
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "default": "",  // Fallback (if not defined)
+        "active": "",   // Currently focused workspace
+        "urgent": ""   // Urgent workspace (e.g., window demands attention)
+      }
+    },
+
+    // LEFT SIDE MODULES
+    "custom/update": {
+      "format": "Update",
+      "on-click": "alacritty -e bash -c Scripts/update_linux.sh"
+    },
+
+    "custom/backup1": {
+      "format": " SU  ",
+      "on-click": "alacritty -e bash -c Scripts/Backup_Scripts/school_backup.sh"
+    },
+
+    "custom/backup2": {
+      "format": " MG  ",
+      "on-click": "alacritty -e bash -c Scripts/Backup_Scripts/personal_backup.sh"
+    },
+
+    "custom/clipboard": {
+        "format": "  ",
+        "return-type": "json",
+        "on-click": "env ROFI_CONFIG=$HOME/.config/rofi/clipboard.rasi clipman pick --tool rofi",
+        "tooltip": true
+    },
+
+    "custom/kdeconnect": {
+        "exec": "~/.config/waybar/phone-status.sh",
+        "interval": 10,
+        "format": "{}",
+        "return-type": "json",
+        "on-click": "kdeconnect-app" 
+    },
+
+    "custom/space1": {
+        "format": "                          ",
+        "return-type": "json",
+    },
+  
+    // CENTRE MODULES
+    "clock": {
+      "interval": 60,
+      "format": " {:%a ,%e %b, %Y | %H:%M} ",
+      "tooltip": false,
+    },
+
+    // RIGHT SIDE MODULES
+    "backlight": {
+        "device": "amdgpu_bl1",
+        "format": " {percent}%",
+        "on-scroll-up": "brightnessctl -d amdgpu_bl1 set +5%",
+        "on-scroll-down": "brightnessctl -d amdgpu_bl1 set 5%-",
+        "tooltip": false
+    },
+
+     "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": " {icon} {volume}% ",
+        "format-muted": "  ",
+        "format-icons": {
+            "headset": "",
+            "phone": "",
+            "default": ["", ""]
+        },
+        "scroll-step": 5,
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "tooltip": false
+    },
+
+     "network": {
+        "interval": 5,
+        "format-wifi": " {essid}",
+        "format-ethernet": " {ifname}",
+        "format-disconnected": "No connection",
+        "tooltip": false,
+        "on-click": "alacritty -e nmtui"
+    },
+
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "format-disabled": " Off",
+        "on-click": "blueman-manager",
+        "tooltip": false
+    },
+
+    "memory": {
+        "interval": 5,
+        "format": "{used:0.1f}GB",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        },
+        "tooltip": false,
+        "on-click": "alacritty -e btop"
+    },
+
+    "battery": {
+      "interval": 1,
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "{icon} {capacity}%",
+      "format-icons": [
+        "", "", "", "", ""
+      ],
+      "format-charging": " {percentage}%",
+      "format-full": "",
+      "tooltip": false,
+      "on-click": "if command -v powerprofilesctl >/dev/null; then powerprofilesctl set balanced && notify-send 'Power Mode' 'Balanced mode activated'; elif command -v cpupower >/dev/null; then sudo cpupower frequency-set -g balanced && notify-send 'Power Mode' 'Balanced (cpupower)'; else notify-send 'Error' 'No power management tool found'; fi",
+      "on-click-right": "if command -v powerprofilesctl >/dev/null; then powerprofilesctl set power-saver && notify-send 'Power Mode' 'Power-saver activated'; elif command -v cpupower >/dev/null; then sudo cpupower frequency-set -g powersave && notify-send 'Power Mode' 'Powersave (cpupower)'; else notify-send 'Error' 'No power management tool found'; fi"
+    },
+
+    "tray": {
+        "icon-size": 18
+    }
+}

@@ -1,0 +1,208 @@
+/* Colours */
+@define-color black	    #282828;
+@define-color red	      #cc241d;
+@define-color green	    #98971a;
+@define-color yellow	  #d79921;
+@define-color blue	    #458588;
+@define-color purple	  #b16286;
+@define-color aqua	    #00FFFF;
+@define-color gray 	    #a89984;
+@define-color armygray  #818589;
+@define-color brred	    #fb4934;
+@define-color brgreen	  #b8bb26;
+@define-color bryellow	#fabd2f;
+@define-color brblue	  #83a598;
+@define-color brpurple 	#d3869b;
+@define-color braqua  	#8ec07c;
+@define-color white   	#ebdbb2;
+@define-color dkgray   	#504945;
+@define-color dkpurple  #301934;
+@define-color lblue     #ADD8E6;
+@define-color lgray     #D3D3D3;
+
+/* Preset general style for all elements */
+* {
+    border: 0;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+    border-radius: 15px;
+}
+
+/* Main Waybar container with top margin */
+#waybar {
+    background: rgba(40, 40, 40, 0.0);
+    color: #ffffff;
+    font-family: "JetBrains Mono Nerd Font", monospace, sans-serif;
+    font-size: 16px;
+}
+
+/* All warning methods here */
+#network.disconnected,
+
+#memory.warning {
+	color: @bryellow;
+}
+#memory.critical {
+	color: @red;
+}
+#battery.warning.discharging {
+	color: @bryellow;
+}
+#battery.critical.discharging {
+	color: @red;
+}
+
+/* Container for all workspaces */
+#workspaces {
+  background: @brblue;       
+  border: 4px solid @blue; 
+  border-radius: 24px;        
+  padding: 0px 0px;           
+  margin: 0px 2px;
+}
+
+/* Individual Workspaces */
+#workspaces button {
+	padding-left: 2pt;
+	padding-right: 2pt;
+	color: @black;
+	background: transparent;
+    border-radius: 100%;
+    padding: 0 7px;
+    margin: 0px 0px;
+    border: 0px solid @brblue;
+} 
+
+/* Current Active workspace */
+#workspaces button.visible {
+	color: @black;
+	background: @lblue;
+}
+
+/* Style when cursor is on the button */
+#workspaces button:hover {
+	background: @dkgray;
+	color: @white;
+}
+
+/* Left side modules */
+#tray {
+	background: transparent;
+}
+
+#custom-update {
+  background: @brblue;
+  color: @black;
+  border: 4px solid @blue;
+  padding: 0 8px;
+  margin: 0px 2px;
+}
+
+#custom-backup1 {
+  background: @brblue;
+  color: @black;
+  border: 4px solid @blue;
+  padding: 0 8px;
+  margin: 0px 2px;
+}
+
+#custom-backup2 {
+  background: @brblue;
+  color: @black;
+  border: 4px solid @blue;
+  padding: 0 8px;
+  margin: 0px 2px;
+}
+
+#custom-clipboard {
+  color: @black;
+  background: @brblue;
+  border: 4px solid @blue;
+  padding: 0 8px;
+  margin: 0px 2px;
+}
+
+#custom-kdeconnect.connected {
+  color: @brgreen;
+  background: @brblue;
+  border: 4px solid @blue;
+  padding: 0 8px;
+  margin: 0px 2px;
+}
+
+#custom-kdeconnect.disabled {
+  color: @dkgray; 
+  background: @brblue;
+  border: 4px solid @blue;
+  padding: 0 8px;
+  margin: 0px 2px;
+}
+
+#custom-space1 {
+  background: transparent;
+  color: transparent;
+}
+
+/* Centre modules*/
+#clock {
+	background: @blue;
+	color: @black;
+  border: 4px solid @purple;
+  padding: 0 8px;
+  margin: 0px 2px;
+}
+
+/* Right side modules */
+#backlight {
+  background: @purple;
+  color: @black;
+  border: 4px solid @blue;
+  padding: 0 8px;
+  margin: 0px 2px;
+}
+
+#pulseaudio {
+	background: @purple;
+	color: @black;
+  border: 4px solid @blue;
+  padding: 0 8px;
+  margin: 0px 2px;
+}
+
+#network {
+	background: @purple;
+	color: @black;
+  border: 4px solid @blue;
+  padding: 0 8px;
+  margin: 0px 2px;
+}
+
+#bluetooth {
+	background: @purple;
+	color: @black;
+  border: 4px solid @blue;
+  padding: 0 8px;
+  margin: 0px 2px;
+}
+
+#memory {
+	background: @purple;
+	color: @black;
+  border: 4px solid @blue;
+  padding: 0 8px;
+  margin: 0px 2px;
+}
+
+#battery {
+  background: @purple;
+  color: @black;
+  border: 4px solid @blue;
+  padding: 0 8px;
+  margin: 0px 2px;
+}
+
