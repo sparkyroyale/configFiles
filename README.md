@@ -4,7 +4,7 @@
 
 1. Here are my basic configurations for my Hyprland Setup
 2. Author's Update > [!NOTE]
->   cd ~/.config && git add hypr/ nvim/ rofi/ waybar/ README.md && git commit -m configPush $(date '+%Y-%m-%d %H:%M:%S')" && git push
+>   cd ~/.config && git add hypr/ nvim/ rofi/ waybar/ README.md && git commit -m "configPush $(date '+%Y-%m-%d %H:%M:%S')" && git push
 
 ---
 
